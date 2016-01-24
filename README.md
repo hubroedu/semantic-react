@@ -1,8 +1,10 @@
 
 
 
-Semantic React components (Alpha, missing components and functionality)
+Semantic React components
 =========================
+
+**WARNING** Alpha, missing components, tests and functionality
 
 This package makes it easy to use the excellent [Semantic-UI](http://semantic-ui.com) css framework in React. It is __heavily__ borrowed/inspired by [react-semantify](https://github.com/jessy1092/react-semantify), but with some tweaks and additions. Having a meteor package was also a lot more convenient than messing around with browserify.
 
