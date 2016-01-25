@@ -8,11 +8,11 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom("1.1.0.2");
-  api.use("ecmascript");
-  api.use("jquery");
-  api.use("react");
+  api.use("ecmascript@0.1.6");
+  api.use("jquery@1.11.4");
+  api.use("react@0.14.3");
   
-  api.use("mquandalle:stylus");
+  api.use("mquandalle:stylus@1.1.1");
   
   
   api.addFiles([
