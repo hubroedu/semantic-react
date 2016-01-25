@@ -1,7 +1,7 @@
 Package.describe({
   name: "hubroedu:semantic-react",
-  version: "0.1.0",
-  summary: "Wraps all semantic-ui classes in useful react components, with focus on meteor integration",
+  version: "0.1.1",
+  summary: "Wraps all semantic-ui classes in useful react components, based on react-semantify, with additional functionality.",
   git: "https://github.com/hubroedu/semantic-react",
   documentation: "README.md"
 });
