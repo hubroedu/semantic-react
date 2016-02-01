@@ -21,25 +21,26 @@ DropdownItem = React.createClass({
       children,
       collapsed,
       menuStyle,
+      icon,
       ...other
     } = this.props;
     
-    let menu = null;
     let open = this.state.opened;
     
-    if (open) {
-      menu = (
-        <Menu className="fluid vertical inverted grey" style={menuStyle}>
-          {children}
-        </Menu>
-      );
-    }
-    
+    let menu = (
+      <Menu
+        className={(open ? "open" : "") +" fluid vertical inverted grey"}
+        style={menuStyle}>
+        
+        {children}
+      </Menu>
+    );
+  
     if (collapsed) {
       return (
         <div className={this.getClasses("ui", "item", "dropdown-item")}>
           <div className="item-linker" onClick={this.toggleOpen}>
-            <Icon icon={open ? "chevron down" : "chevron right"} />
+            <Icon icon={icon} />
           </div>
           
           {menu}
@@ -50,10 +51,12 @@ DropdownItem = React.createClass({
     return (
       <div className={this.getClasses("ui", "item", "dropdown-item")}>
         <div className="item-linker" onClick={this.toggleOpen}>
-          <Icon icon={open ? "chevron down" : "chevron right"} />
           <div className="item-header">
+            {icon ? <Icon icon={icon} /> : null}
             {label}
           </div>
+          <Icon
+            icon={open ? "chevron down" : "chevron right"} />
         </div>
         
         {menu}

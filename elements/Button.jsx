@@ -8,7 +8,7 @@ Button = React.createClass({
     } = this.props;
     
     return <Unit
-      type="div"
+      type="button"
       {...others}
       disabled={this.getDisabled()}
       active={this.getActive()}

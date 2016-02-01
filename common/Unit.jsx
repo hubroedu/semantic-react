@@ -24,6 +24,15 @@ Unit = React.createClass({
             {this.props.children}
           </a>
         );
+        
+      case 'button':
+        return (
+          <button {...other}
+            className={this._generateClassName()}
+            data-value={value}>
+            {this.props.children}
+          </button>
+        );
 
       case 'icon':
         return (

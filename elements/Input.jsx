@@ -53,7 +53,7 @@ Input = React.createClass({
           <Icon icon={icon} />: null}
         
         {label ?
-          <div className="ui label">{label}</div>: null}
+          <label>{label}</label>: null}
         
         {type === "textarea" ?
           <textarea

@@ -30,7 +30,13 @@ Package.onUse(function (api) {
     "misc/Right.jsx",
     "misc/Left.jsx",
     "misc/Content.jsx",
+    "misc/ExtraContent.jsx",
     "misc/Pusher.jsx",
+    "misc/Meta.jsx",
+    "misc/Description.jsx",
+    
+    "extensions/range.js",
+    "extensions/range.styl",
     
     
     "elements/Button.jsx",
@@ -89,15 +95,20 @@ Package.onUse(function (api) {
     "modules/Tab.jsx",
     "modules/TabContent.jsx",
     "modules/TabMenu.jsx",
+    "modules/Range.jsx",
   ], "client");
   
   api.export([
     "classSet",
     "Mixins",
     "Left",
+    "ExtraContent",
     "Right",
     "Button",
+    "Range",
     "Buttons",
+    "Meta",
+    "Description",
     "Elements",
     "Container",
     "Divider",
