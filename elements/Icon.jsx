@@ -4,11 +4,11 @@ Icon = React.createClass({
 
   render () {
 
-    let {className, color, ...other} = this.props;
+    let {className, icon, color, ...other} = this.props;
 
     return (
       <i {...other}
-        className={this.getClasses("ui", "icon")}
+        className={this.getClasses("icon") + " " + icon}
         type="icon"
         color={this.getColor()}
         disabled={this.getDisabled()}

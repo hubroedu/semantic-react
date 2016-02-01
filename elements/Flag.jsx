@@ -4,11 +4,11 @@ Flag = React.createClass({
 
   render () {
 
-    let {className, type, color, ...other} = this.props;
+    let {className, type, flag, color, ...other} = this.props;
 
     return (
       <Unit {...other}
-        className={this.getClasses("flag")}
+        className={this.getClasses("flag", flag)}
         type="icon"
         color="null">
       </Unit>

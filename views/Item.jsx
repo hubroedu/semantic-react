@@ -50,7 +50,7 @@ Item = React.createClass({
   
   render() {
     let props = this.props;
-    let {className, type, ...other} = props;
+    let {className, collapsed, type, ...other} = props;
 
     if (typeof props.type != 'undefined') {
       if (props.type == 'link') {
@@ -63,6 +63,20 @@ Item = React.createClass({
       defaultClassName = "ui item";
     }
     
+    if (collapsed) {
+      return (
+        <Unit {...other}
+          className={this.getClasses(defaultClassName)}
+          type={this.getType()}
+          color="null"
+          value={this.props.value} >
+
+          {props.icon ? this.renderIcon() : null}
+          {this.props.children}
+        </Unit>
+      );
+    }
+    
     return (
       <Unit {...other}
         className={this.getClasses(defaultClassName)}
@@ -70,8 +84,8 @@ Item = React.createClass({
         color="null"
         value={this.props.value} >
 
-        {props.icon ? this.renderIcon() : ""}
-        {props.right ? this.renderRight() : ""}
+        {props.icon ? this.renderIcon() : null}
+        {props.right ? this.renderRight() : null}
         {this.hasContent() ? this.renderContent() : this.props.children}
       </Unit>
     );

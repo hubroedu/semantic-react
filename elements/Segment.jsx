@@ -4,7 +4,7 @@ Segment = React.createClass({
 
   render () {
 
-    let {className, color, ...other} = this.props;
+    let {className, children, color, ...other} = this.props;
 
     return (
       <Unit {...other}
@@ -13,6 +13,8 @@ Segment = React.createClass({
         color={this.getColor()}
         disabled={this.getDisabled()}
         loading={this.getLoading()}>
+        
+        {children}
       </Unit>
     );
   }

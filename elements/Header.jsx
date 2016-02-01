@@ -4,7 +4,7 @@ Header = React.createClass({
 
   render () {
 
-    let {className, type, color, ...other} = this.props;
+    let {className, type, children, color, ...other} = this.props;
 
     return (
       <Unit {...other}
@@ -12,8 +12,24 @@ Header = React.createClass({
         type={this.getType()}
         color={this.getColor()}
         disabled={this.getDisabled()}>
-        {this.props.children}
+        {children}
       </Unit>
+    );
+  }
+});
+
+SubHeader = React.createClass({
+
+  mixins: [Mixins.classGenerator],
+
+  render () {
+
+    let {className, children, ...other} = this.props;
+
+    return (
+      <div {...other} className={this.getClasses("sub", "header")}>
+        {children}
+      </div>
     );
   }
 });

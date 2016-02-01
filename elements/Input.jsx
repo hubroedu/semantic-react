@@ -33,6 +33,7 @@ Input = React.createClass({
       min,
       max,
       step,
+      icon,
       children,
       ...other
     } = this.props;
@@ -47,6 +48,9 @@ Input = React.createClass({
     
     return (
       <div className={this.getClasses("ui", "input")}>
+        
+        {icon ?
+          <Icon icon={icon} />: null}
         
         {label ?
           <div className="ui label">{label}</div>: null}
