@@ -8,7 +8,7 @@ Dropdown = React.createClass({
     if (this.getActive() || this.getDisabled()) {
       defaultClassName += ' simple';
     }
-
+    
     return (
       <Unit {...other}
         className={this.getClasses("ui", "dropdown")}

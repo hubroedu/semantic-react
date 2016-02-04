@@ -9,7 +9,7 @@ Range = React.createClass({
   },
   
   onChange (e) {
-    let value = this.refs.range.value;
+    let value = +this.refs.range.value;
     let {name, onChange} = this.props;
     
     this.setState({ value });
@@ -21,7 +21,7 @@ Range = React.createClass({
   
   getInitialState () {
     return {
-      value: ""
+      value: this.props.defaultValue || 0
     }
   },
   

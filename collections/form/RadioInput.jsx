@@ -20,15 +20,24 @@ RadioInput = React.createClass({
 
 RadioGroup = React.createClass({
   componentDidMount () {
-    $(".ui.radio.checkbox").checkbox();
+    $(".ui.radio.checkbox").checkbox({
+      onChange: this.onChange
+    });
+  },
+  
+  onChange (value) {
+    console.log(value);
+    if (this.props.onChange) {
+      this.props.onChange(this.props.name, value);
+    }
   },
   
   render() {
     let name = this.props.name;
     
-    let childrenWithProps = React.Children.map(this.props.children, function(child) {
-            return React.cloneElement(child, { name });
-        });
+    let childrenWithProps = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, { name });
+    });
 
     return (
       <div className="field">

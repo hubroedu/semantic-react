@@ -35,7 +35,6 @@ Package.onUse(function (api) {
     "misc/Meta.jsx",
     "misc/Description.jsx",
     
-    "extensions/range.js",
     "extensions/range.styl",
     
     
@@ -107,6 +106,8 @@ Package.onUse(function (api) {
     "Button",
     "Range",
     "Buttons",
+    "RadioGroup",
+    "RadioInput",
     "Meta",
     "Description",
     "Elements",
