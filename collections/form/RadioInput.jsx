@@ -19,14 +19,17 @@ RadioInput = React.createClass({
 });
 
 RadioGroup = React.createClass({
+  mixins: [Mixins.classGenerator],
+  
   componentDidMount () {
-    $(".ui.radio.checkbox").checkbox({
-      onChange: this.onChange
+    let component = this;
+    
+    $(this.refs.checkboxes).find(".ui.radio.checkbox").checkbox({
+      onChecked: function () { component.onChange($(this).attr("value")); },
     });
   },
   
-  onChange (value) {
-    console.log(value);
+  onChange (value, a) {
     if (this.props.onChange) {
       this.props.onChange(this.props.name, value);
     }
@@ -40,7 +43,7 @@ RadioGroup = React.createClass({
     });
 
     return (
-      <div className="field">
+      <div className={this.getClasses("field")} ref="checkboxes">
         {childrenWithProps}
       </div>
     );
