@@ -11,7 +11,7 @@ RadioInput = React.createClass({
             value={this.props.value}
             name={this.props.name} />
           
-          <label>{this.props.label}</label>
+          <label data-radio-name={this.props.name}>{this.props.label}</label>
         </div>
       </div>
     );

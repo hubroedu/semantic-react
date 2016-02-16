@@ -1,6 +1,6 @@
 Package.describe({
   name: "hubroedu:semantic-react",
-  version: "0.1.1",
+  version: "0.1.2",
   summary: "Semantic-ui as useful react components, based on react-semantify, with additional functionality.",
   git: "https://github.com/hubroedu/semantic-react",
   documentation: "README.md"
@@ -53,7 +53,9 @@ Package.onUse(function (api) {
     "elements/Rail.jsx",
     "elements/Reveal.jsx",
     "elements/Segment.jsx",
+    "elements/Segments.jsx",
     "elements/Step.jsx",
+    "elements/Steps.jsx",
     
     "collections/form/Form.jsx",
     "collections/form/Field.jsx",
@@ -128,7 +130,9 @@ Package.onUse(function (api) {
     "Rail",
     "Reveal",
     "Segment",
+    "Segments",
     "Step",
+    "Steps",
     "Collections",
     "Breadcrumb",
     "Form",

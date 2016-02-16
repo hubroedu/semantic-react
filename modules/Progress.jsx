@@ -97,6 +97,10 @@ Progress = React.createClass({
       error: this.getError(),
       disabled: this.getDisabled()
     };
+    
+    let barStyle = {
+      width: this.state.percent + "%"
+    };
 
     return (
       <div {...other}
@@ -107,7 +111,7 @@ Progress = React.createClass({
         data-total={total}
         ref="progress">
         
-        <div className="bar"></div>
+        <div className="bar" style={barStyle}></div>
         <div className="label">
           {this.props.label}
           {this.state.label}
