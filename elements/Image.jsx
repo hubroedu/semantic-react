@@ -4,12 +4,23 @@ Image = React.createClass({
 
   render () {
 
-    let {className, type, disabled, ...other} = this.props;
-
+    let {className, type, disabled, src, ...other} = this.props;
+    let uiClass = "";
+    
+    if (src) {
+      type = "img";
+      uiClass = "ui";
+    } else {
+      type = "div";
+    }
+    
+    
+    
     return (
       <Unit {...other}
-        className={this.getClasses("ui", "image")}
-        type="img"
+        src={src}
+        className={this.getClasses(uiClass, "image")}
+        type={type}
         color="null"
         disabled={this.getDisabled()}>
         {this.props.children}
