@@ -8,7 +8,7 @@ cosmos:browserify@0.9.3
 ecmascript@0.1.6
 ecmascript-runtime@0.2.6
 ejson@1.0.7
-hubroedu:semantic-react@0.1.2
+hubroedu:semantic-react@0.1.3
 jquery@1.11.4
 jsx@0.2.3
 meteor@1.1.10

@@ -94,7 +94,7 @@ and
 
 The aim of this project is to make the components as intuitive as possible, so only the exeptions will be specifically mentioned. Most components work the same way, and if they don't, open an issue!
 
-Refer to [Semantic UI docs](http://semantic-ui.com/) for a complete reference to everything.
+Refer to [Semantic UI docs](http://semantic-ui.com/) for a complete reference to all variations of components.
 
 
 
@@ -103,19 +103,23 @@ Refer to [Semantic UI docs](http://semantic-ui.com/) for a complete reference to
 ### *Elements*
 ---
 
-###Input
+### Input
 
 ```html
 <Input name="username" placeholder="Username here" label="Username" />
-<Input name="age" type="number" min="1" max="110" step="1" label="Your age" />
+<Input id="my-age" name="age" type="number" min="1" max="110" step="1" label="Your age" />
+<Input name="about" type="textarea" rows="10" label="About you" />
 ```
 Renders to:
 ```html
-<label>Username</label>
-<input type="text" name="username" placeholder="Username here" />
+<label for="input_username">Username</label>
+<input id="input_username" type="text" name="username" placeholder="Username here" />
 
-<label>Your age</label>
-<input type="number" name="age" min="1" max="110" step="1" />
+<label for="my-age">Your age</label>
+<input id="my-age" type="number" name="age" min="1" max="110" step="1" />
+
+<label for="input_about">About you</label>
+<textarea id="input_about" name="about" rows="10" />
 ```
 
 You can add buttons, icons and labels to the input.
@@ -127,10 +131,11 @@ You can add buttons, icons and labels to the input.
 </Input>
 ```
 
-#####Common props:
+##### Common props:
 
 * *type*: text/textarea/number (range is a separate component)
 * *name*: The built in name property of the input
+* *id*: The id property will be added automatically if not specified, generated as "input_" + name
 * *label*: Adds a label to the input
 * *placeholder*: Placeholder text for text/textarea
 * *onChange*: Hooks to the onChange handler, takes a callback function with three arguments:
@@ -138,39 +143,74 @@ You can add buttons, icons and labels to the input.
     * value: New value
     * event: Synthetic event
 
-#####Textarea props:
+##### Textarea props:
 
 * *rows*: Number of rows in a textarea input
 
-#####Number props:
+##### Number props:
 
 * *min*
 * *max*
 * *step*
 
 
+### Flag
+
+```html
+<Flag flag="no" />
+```
+Renders to
+```html
+<i class="flag no"></i>
+```
+
+##### Props:
+* *flag*: Language code of flag
 
 
-###Flag
+
+### Icon
+
+```html
+<Icon icon="star" />
+```
+Renders to
+```html
+<i class="star icon"></i>
+```
+
+##### Props:
+* *icon*: Name of the font awesome icon
+* *size*: Size variation
+* *loading*: Is loading boolean
+* *disabled*: Disabled boolean
+
+
+### Rail
 
 TODO
 
 
-
-###Icon
-
-TODO
+### Step
 
 
-
-###Rail
-
-TODO
-
-
-###Step
-
-
+```html
+<Steps>
+  <Step completed={true}> Step 1 </Step>
+  <Step active={true}> Step 2 </Step>
+  <Step disabled={true}> Step 3 </Step>
+  <Step disabled={true}> Step 4 </Step>
+</Steps>
+```
+Renders to
+```html
+<div class="ui steps">
+  <div class="step completed"  > Step 1 </div>
+  <div class="step active"> Step 2 </div>
+  <div class="step disabled"> Step 3 </div>
+  <div class="step disabled"> Step 4 </div>
+</divb>
+```
 
 
 
@@ -178,19 +218,19 @@ TODO
 ### *Collections*
 ---
 
-###Form
+### Form
 
 TODO
 
-###Grid
+### Grid
 
 TODO
 
-###Table
+### Table
 
 TODO
 
-###Menu
+### Menu
 
 TODO
 
@@ -201,19 +241,19 @@ TODO
 ---
 
 
-###Ads
+### Ads
 
 TODO
 
-###Card
+### Card
 
 TODO
 
-###Item
+### Item
 
 TODO
 
-###Statistic
+### Statistic
 
 TODO
 
@@ -229,7 +269,7 @@ Modules are initialized by default, which is the same as passing the prop `init=
 To configure a module, pass the configuration object to `init`.
 
 
-###Accordion
+### Accordion
 
 TODO
 

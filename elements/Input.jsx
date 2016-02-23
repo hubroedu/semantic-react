@@ -26,6 +26,7 @@ Input = React.createClass({
   render() {
     let {
       label,
+      id,
       name,
       placeholder,
       type,
@@ -44,6 +45,8 @@ Input = React.createClass({
     
     let classes = "";
     
+    id = id || `input_${name}`;
+    
     if (label) classes += " labeled";
     
     return (
@@ -53,16 +56,18 @@ Input = React.createClass({
           <Icon icon={icon} />: null}
         
         {label ?
-          <label>{label}</label>: null}
+          <label for={id}>{label}</label>: null}
         
         {type === "textarea" ?
           <textarea
             {...other}
+            id={id}
             rows={rows}
             name={name}
             onChange={this.handleChange} /> :
           <input
             {...other}
+            id={id}
             type={type}
             name={name}
             min={min}
