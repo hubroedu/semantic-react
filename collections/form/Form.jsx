@@ -5,9 +5,6 @@ Form = React.createClass({
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.preventDefault();
-    console.log("Submitting");
-    
-    alert("submitted damnit")
     
     if (this.props.onSubmit) {
       this.props.onSubmit(e);

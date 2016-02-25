@@ -24,10 +24,10 @@ Dimmer = React.createClass({
         return;
       }
 
-      if (this.props.init === true) {
-        $(ReactDOM.findDOMNode(this)).dimmer();
-      } else {
+      if (this.props.init) {
         $(ReactDOM.findDOMNode(this)).dimmer(this.props.init);
+      } else {
+        $(ReactDOM.findDOMNode(this)).dimmer();
       }
     }
   }

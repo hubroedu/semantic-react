@@ -24,6 +24,7 @@ Mixins.classGenerator = {
     if (typeof semanticClass !== 'undefined') {
       classes += ` ${semanticClass}`;
     }
+    
     return classes;
   },
 };
