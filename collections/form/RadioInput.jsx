@@ -1,17 +1,24 @@
 RadioInput = React.createClass({
   render () {
+    const {
+      name,
+      value,
+      label,
+      ...other
+    } = this.props;
+    
     return (
       <div className="field">
         <div className="ui radio checkbox">
           
           <input
-            {...this.props}
+            {...other}
             type="radio"
             className="hidden"
-            value={this.props.value}
-            name={this.props.name} />
+            value={value}
+            name={name} />
           
-          <label data-radio-name={this.props.name}>{this.props.label}</label>
+          <label data-radio-name={name}>{label}</label>
         </div>
       </div>
     );
@@ -21,12 +28,33 @@ RadioInput = React.createClass({
 RadioGroup = React.createClass({
   mixins: [Mixins.classGenerator],
   
+  componentWillReceiveProps (newProps) {
+    const defaultValue = this.props.defaultValue;
+    // isDefined checks for not undefined and not null
+    if (!_.isDefined(defaultValue) && _.isDefined(newProps.defaultValue)) {
+      this.setChecked(newProps.defaultValue);
+    }
+  },
+  
+  setChecked (value) {
+    $(this.refs.checkboxes)
+      .find(".ui.radio.checkbox input[value=" + value + "]")
+      .parent()
+        .checkbox("check");
+  },
+  
   componentDidMount () {
     let component = this;
     
     $(this.refs.checkboxes).find(".ui.radio.checkbox").checkbox({
       onChecked: function () { component.onChange($(this).attr("value")); },
     });
+    
+    const defaultValue = this.props.defaultValue;
+    
+    if (defaultValue) {
+      this.setChecked(defaultValue);
+    }
   },
   
   onChange (value, a) {

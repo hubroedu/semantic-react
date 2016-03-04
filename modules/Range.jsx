@@ -28,6 +28,7 @@ Range = React.createClass({
   render() {
     let {
       className,
+      formatter,
       active, success, warning, error, disabled,
       ...other
     } = this.props;
@@ -52,7 +53,7 @@ Range = React.createClass({
         </Column>
         <Column>
           <div className="label">
-            {this.state.value}
+            {formatter ? formatter(this.state.value) : this.state.value}
           </div>
         </Column>
       </Grid>

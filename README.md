@@ -277,6 +277,53 @@ TODO
 
 TODO
 
+
+### Radio Input
+
+We have implemented a separate component for this variant of Checkbox.
+It constsists of a RadioGroup, with several RadioInput elements.
+
+
+```html
+<RadioGroup name="fruit" defaultValue="banana" onChange={this.fruitHandler}>
+  <RadioInput value="banana" label="Banana" />
+  <RadioInput value="apple" label="Apple" />
+  <RadioInput value="pear" label="Pear" />
+</RadioGroup>
+```
+Renders to
+```html
+<div class="field">
+  <div class="field">
+    <div class="ui radio checkbox checked">
+      <input type="radio" class="hidden" value="banana" name="fruit" tabindex="0">
+      <label data-radio-name="fruit">
+        Banana
+      </label>
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui radio checkbox">
+      <input type="radio" class="hidden" value="apple" name="fruit" tabindex="0">
+      <label data-radio-name="fruit">
+        Apple
+      </label>
+    </div>
+  </div>
+  <div class="field">
+    <div class="ui radio checkbox">
+      <input type="radio" class="hidden" value="pear" name="fruit" tabindex="0">
+      <label data-radio-name="fruit">
+        Pear
+      </label>
+    </div>
+  </div>
+  
+</div>
+```
+
+
+
 ### Dropdown
 
 TODO
