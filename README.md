@@ -30,7 +30,9 @@ Although this is a young package, we are already using it in our internal projec
       - [Textarea props:](#textarea-props)
       - [Number props:](#number-props)
   - [Flag](#flag)
+      - [Props:](#props)
   - [Icon](#icon)
+      - [Props:](#props-1)
   - [Rail](#rail)
   - [Step](#step)
 - [](#-1)
@@ -41,17 +43,18 @@ Although this is a young package, we are already using it in our internal projec
   - [Table](#table)
   - [Menu](#menu)
 - [](#-2)
-- [### *Views*](#-views)
   - [*Views*](#views)
+- [### *Views*](#-views)
   - [Ads](#ads)
   - [Card](#card)
   - [Item](#item)
   - [Statistic](#statistic)
 - [](#-3)
-  - [*Modules*](#modules)
 - [### *Modules*](#-modules)
+  - [*Modules*](#modules)
   - [Accordion](#accordion)
   - [Checkbox](#checkbox)
+  - [Radio Input](#radio-input)
   - [Dropdown](#dropdown)
   - [Progress](#progress)
   - [Tab](#tab)
@@ -92,7 +95,7 @@ and
 
 ## Docs
 
-The aim of this project is to make the components as intuitive as possible, so only the exeptions will be specifically mentioned. Most components work the same way, and if they don't, open an issue!
+The aim of this project is to make the components as intuitive as possible. Most components work the same way, and if they don't, open an issue!
 
 Refer to [Semantic UI docs](http://semantic-ui.com/) for a complete reference to all variations of components.
 
