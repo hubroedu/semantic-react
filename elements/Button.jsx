@@ -1,7 +1,7 @@
 Button = React.createClass({
   mixins: [Mixins.classGenerator, Mixins.stateSelector, Mixins.colorSelector],
   
-  render() {
+  render () {
     let {
       className,
       ...others

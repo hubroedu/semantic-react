@@ -17,6 +17,10 @@ Input = React.createClass({
   handleChange (e) {
       let value = e.target.value;
       let name = this.props.name;
+      
+      if (this.props.type === "number") {
+        value = +value;
+      }
 
       if (this.props.onChange) {
         this.props.onChange(name, value, e);

@@ -12,6 +12,10 @@ Mixins.classGenerator = {
     if (props.color) {
       classes += " " + props.color;
     }
+    
+    if (props.size) {
+      classes += " " + props.size;
+    }
 
     if (typeof addClassName !== 'undefined') {
       if (typeof addClassName === 'object') {

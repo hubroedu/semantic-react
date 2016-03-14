@@ -14,16 +14,27 @@ Accordion = React.createClass({
   },
 
   componentDidMount () {
+    let opts = {
+
+    };
+    
     if (typeof this.props.init != 'undefined') {
       if (this.props.init === false) {
         return;
       }
-
-      if (this.props.init === true) {
-        $(this.refs.accordion).accordion();
-      } else {
-        $(this.refs.accordion).accordion(this.props.init);
+      
+      if (typeof this.props.init === 'object') {
+        opts = _.extend(opts, this.props.init);
       }
     }
+    
+    if (this.props.onChange) {
+      opts.onChange = (value, label, el) => {
+        let name = this.props.name;
+        this.props.onChange(name, value, el);
+      }
+    }
+
+    $(ReactDOM.findDOMNode(this)).accordion(opts);
   }
 });

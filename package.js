@@ -35,6 +35,7 @@ Package.onUse(function (api) {
     "misc/Pusher.jsx",
     "misc/Meta.jsx",
     "misc/Description.jsx",
+    "misc/Title.jsx",
     
     "extensions/range.styl",
     
@@ -120,6 +121,7 @@ Package.onUse(function (api) {
     "Content",
     "Pusher",
     "Flag",
+    "Title",
     "Header",
     "SubHeader",
     "Icon",

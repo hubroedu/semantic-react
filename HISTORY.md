@@ -1,3 +1,8 @@
+### 0.1.5 (in progress)
+
+* added Title component (useful in accordions)
+* Statistic can take a change property, to indicate change.
+* bugfixes to components
 
 ### 0.1.4
 
