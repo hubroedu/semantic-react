@@ -4,11 +4,14 @@ Button = React.createClass({
   render () {
     let {
       className,
+      type,
       ...others
     } = this.props;
     
+    type = type || "div";
+    
     return <Unit
-      type="button"
+      type={type}
       {...others}
       disabled={this.getDisabled()}
       active={this.getActive()}

@@ -1,3 +1,6 @@
+
+const isDefined = val => !_.isUndefined(val) && !_.isNull(val);
+
 Statistic = React.createClass({
   mixins: [Mixins.classGenerator],
   
@@ -16,7 +19,7 @@ Statistic = React.createClass({
         <div className="value">
           {formatter ? formatter(value) : value}
           
-          {_.isDefined(changeLabel) ? changeLabel : null}
+          {isDefined(changeLabel) ? changeLabel : null}
         </div>
         
         
@@ -53,7 +56,7 @@ Statistic = React.createClass({
           </div>
         : null}
 
-        {_.isDefined(changeLabel) ? changeLabel : null}
+        {isDefined(changeLabel) ? changeLabel : null}
       </div>
     );
   },
@@ -70,10 +73,17 @@ Statistic = React.createClass({
     
     let changeLabel = null;
     
-    if (_.isDefined(change)) {
+    let icon = "grey minus";
+    if (change > 0) {
+      icon = "green chevron up";
+    } else if (change < 0) {
+      icon = "red chevron down";
+    }
+    
+    if (isDefined(change)) {
       changeLabel = (
         <div className="label">
-          <Icon icon={change >= 0 ? "green chevron up" : "red chevron down"} />
+          <Icon icon={icon } />
           {formatter ? formatter(change) : change}
         </div>
       );
@@ -87,7 +97,5 @@ Statistic = React.createClass({
     }
     
     return this.renderVertical(args);
-    
-    
   }
 });

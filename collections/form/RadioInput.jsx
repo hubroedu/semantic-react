@@ -1,3 +1,5 @@
+const isDefined = val => !_.isUndefined(val) && !_.isNull(val);
+
 RadioInput = React.createClass({
   render () {
     const {
@@ -31,7 +33,7 @@ RadioGroup = React.createClass({
   componentWillReceiveProps (newProps) {
     const defaultValue = this.props.defaultValue;
     // isDefined checks for not undefined and not null
-    if (!_.isDefined(defaultValue) && _.isDefined(newProps.defaultValue)) {
+    if (!isDefined(defaultValue) && isDefined(newProps.defaultValue)) {
       this.setChecked(newProps.defaultValue);
     }
   },

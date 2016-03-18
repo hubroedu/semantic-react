@@ -274,7 +274,54 @@ To configure a module, pass the configuration object to `init`.
 
 ### Accordion
 
-TODO
+```html
+<Accordion className="styled fluid">
+  <Title>
+    Tab 1
+  </Title>
+  <Content>
+    Tab 1 content
+  </Content>
+  <Title>
+    Tab 2
+  </Title>
+  <Content>
+    Tab 2 content
+  </Content>
+  <Title>
+    Tab 3
+  </Title>
+  <Content>
+    Tab 3 content
+  </Content>
+  <Title>
+    Tab 4
+  </Title>
+  <Content>
+    Tab 4 content
+  </Content>
+</Accordion>
+```
+
+or if you have dynamic content
+
+```html
+<Accordion>
+  {puppies.map(puppy => {
+    return [
+      <Title key={puppy.name}>
+        <Icon icon="paw" className="right floated" />
+        <Icon icon="dropdown" />
+      
+        {puppy.name}
+      </Title>,
+      <Content key={puppy.name + "content"}>
+        <PuppyDetails puppy={puppy} />
+      </Content>
+    ];
+  })}
+</Accordion>
+```
 
 ### Checkbox
 
