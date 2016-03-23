@@ -1,9 +1,8 @@
-Reveal = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.stateSelector],
-
+const Reveal = class extends React.Component {
   render () {
-
     let {className, ...other} = this.props;
 
     return (
@@ -16,4 +15,6 @@ Reveal = React.createClass({
       </Unit>
     );
   }
-});
+};
+
+export default classGenerator(stateSelector(Reveal));

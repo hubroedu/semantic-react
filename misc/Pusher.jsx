@@ -1,6 +1,7 @@
-Pusher = React.createClass({
-  mixins: [Mixins.classGenerator],
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
+const Pusher = class extends React.Component {
   render () {
     let {className, children, ...other} = this.props;
 
@@ -10,4 +11,6 @@ Pusher = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Pusher);

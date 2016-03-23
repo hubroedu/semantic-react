@@ -1,7 +1,8 @@
-Buttons = React.createClass({
-  mixins: [Mixins.classGenerator],
-  
-  render() {
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
+
+let Buttons = class extends React.Component {
+  render () {
     let {
       className,
       ...others
@@ -11,4 +12,8 @@ Buttons = React.createClass({
       {this.props.children}
     </div>;
   }
-});
+};
+
+Buttons = classGenerator(Buttons);
+
+export default Buttons;

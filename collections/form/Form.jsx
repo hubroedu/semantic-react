@@ -1,6 +1,7 @@
-Form = React.createClass({
-  mixins: [Mixins.classGenerator],
-  
+import React, {PropTypes} from "react";
+import { classGenerator } from "../../mixins";
+
+const Form = class extends React.Component {
   handleSubmit (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -11,9 +12,9 @@ Form = React.createClass({
     }
     
     return false;
-  },
+  }
   
-  render() {
+  render () {
     let {
       children,
       className,
@@ -31,6 +32,8 @@ Form = React.createClass({
       </form>
     );
   }
-});
+};
 
+Form = classGenerator(Form);
 
+export default Form;

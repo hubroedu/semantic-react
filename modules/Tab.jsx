@@ -1,11 +1,11 @@
-Tab = React.createClass({
+Tab = class extends React.Component {
   mixins: [Mixins.classGenerator, Mixins.stateSelector],
   
   propTypes: {
     tab: React.PropTypes.string,
   },
   
-  render() {
+  render () {
     return <a className={(this.props.active?"active ":"")+"item"} data-tab={this.props.tab}>
       {this.props.children}
     </a>;

@@ -1,7 +1,7 @@
-Divider = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+let Divider = class extends React.Component {
   render () {
     return (
       <div className={this.getClasses("ui", "divider")}>
@@ -9,4 +9,8 @@ Divider = React.createClass({
       </div>
     );
   }
-});
+};
+
+Divider = classGenerator(Divider);
+
+export default Divider;

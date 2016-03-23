@@ -1,9 +1,8 @@
-Flag = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+let Flag = class extends React.Component {
   render () {
-
     let {
       className,
       type,
@@ -18,7 +17,7 @@ Flag = React.createClass({
     let variations = "";
     variations += loading ? "loading " : "";
     variations += disabled ? "disabled " : "";
-    variations += size ? size+" " : "";
+    variations += size ? size + " " : "";
     
     return (
       <Unit {...other}
@@ -28,4 +27,8 @@ Flag = React.createClass({
       </Unit>
     );
   }
-});
+};
+
+Flag = classGenerator(Flag);
+
+export default Flag;

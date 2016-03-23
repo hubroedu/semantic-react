@@ -1,9 +1,8 @@
-Segments = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+const Segments = class extends React.Component {
   render () {
-
     let {className, ...other} = this.props;
 
     return (
@@ -12,4 +11,6 @@ Segments = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Segments);

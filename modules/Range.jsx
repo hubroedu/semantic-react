@@ -1,4 +1,4 @@
-Range = React.createClass({
+Range = class extends React.Component {
   mixins: [
     Mixins.classGenerator,
     Mixins.stateSelector,
@@ -25,7 +25,7 @@ Range = React.createClass({
     }
   },
   
-  render() {
+  render () {
     let {
       className,
       formatter,

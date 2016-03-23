@@ -1,12 +1,12 @@
 
-TabContent = React.createClass({
+TabContent = class extends React.Component {
   mixins: [Mixins.classGenerator, Mixins.stateSelector],
   
   propTypes: {
     tab: React.PropTypes.string,
   },
   
-  render() {
+  render () {
     let {
       className,
       active,

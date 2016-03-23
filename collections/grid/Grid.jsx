@@ -1,7 +1,9 @@
-Grid = React.createClass({
-  mixins: [Mixins.classGenerator],
-  
-  render() {
+import React, {PropTypes} from "react";
+import { classGenerator } from "../../mixins";
+
+
+const Grid = class extends React.Component {
+  render () {
     let {
       className,
       ...other
@@ -11,4 +13,8 @@ Grid = React.createClass({
       {this.props.children}
     </div>;
   }
-});
+};
+
+Grid = classGenerator(Grid);
+
+export default Grid;

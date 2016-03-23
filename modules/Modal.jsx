@@ -1,9 +1,31 @@
-Modal = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.stateSelector],
+const Modal = class extends React.Component {
+  componentDidMount () {
+    let opts = {};
+    
+    if (typeof this.props.init !== 'undefined') {
+      if (this.props.init === false) {
+        return;
+      }
+      
+      if (typeof this.props.init === 'object') {
+        opts = _.extend(opts, this.props.init);
+      }
+    }
+    
+    if (this.props.onChange) {
+      opts.onChange = (value, label, el) => {
+        let name = this.props.name;
+        this.props.onChange(name, value, el);
+      };
+    }
 
+    $(ReactDOM.findDOMNode(this)).modal(opts);
+  }
+  
   render () {
-
     let {className, color, type, active, ...other} = this.props;
 
     return (
@@ -15,19 +37,7 @@ Modal = React.createClass({
         {this.props.children}
       </Unit>
     );
-  },
-
-  componentDidMount () {
-    if (typeof this.props.init != 'undefined') {
-      if (this.props.init === false) {
-        return;
-      }
-
-      if (this.props.init === true) {
-        $(ReactDOM.findDOMNode(this)).modal();
-      } else {
-        $(ReactDOM.findDOMNode(this)).modal(this.props.init);
-      }
-    }
   }
-});
+};
+
+export default classGenerator(stateSelector(Modal));

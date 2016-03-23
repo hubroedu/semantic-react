@@ -1,6 +1,7 @@
-Title = React.createClass({
-  mixins: [Mixins.classGenerator],
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
+const Title = class extends React.Component {
   render () {
     let {className, children, ...other} = this.props;
 
@@ -10,4 +11,6 @@ Title = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Title);

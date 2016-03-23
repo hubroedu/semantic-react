@@ -1,9 +1,8 @@
-Table = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+const Table = class extends React.Component {
   render () {
-
     let {className, ...other} = this.props;
 
     return (
@@ -12,4 +11,8 @@ Table = React.createClass({
       </table>
     );
   }
-});
+};
+
+Table = classGenerator(Table);
+
+export default Table;

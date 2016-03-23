@@ -1,4 +1,4 @@
-Item = React.createClass({
+Item = class extends React.Component {
   mixins: [Mixins.classGenerator, Mixins.typeSelector],
   
   hasContent () {
@@ -48,7 +48,7 @@ Item = React.createClass({
     </div>
   },
   
-  render() {
+  render () {
     let props = this.props;
     let {className, collapsed, type, ...other} = props;
 

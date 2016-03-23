@@ -1,6 +1,7 @@
-Button = React.createClass({
-  mixins: [Mixins.classGenerator, Mixins.stateSelector, Mixins.colorSelector],
-  
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector, colorSelector } from "../mixins";
+
+let Button = class extends React.Component {
   render () {
     let {
       className,
@@ -22,4 +23,10 @@ Button = React.createClass({
       {this.props.children}
     </Unit>;
   }
-});
+};
+
+Button = classGenerator(Button);
+Button = stateSelector(Button);
+Button = colorSelector(Button);
+
+export default Button;

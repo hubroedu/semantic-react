@@ -1,12 +1,13 @@
-Dropdown = React.createClass({
-  mixins: [Mixins.classGenerator, Mixins.stateSelector],
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
 
+const Dropdown = class extends React.Component {
   componentDidMount () {
     let opts = {
       transition: "drop"
     };
     
-    if (typeof this.props.init != 'undefined') {
+    if (typeof this.props.init !== 'undefined') {
       if (this.props.init === false) {
         return;
       }
@@ -20,7 +21,7 @@ Dropdown = React.createClass({
       opts.onChange = (value, label, el) => {
         let name = this.props.name;
         this.props.onChange(name, value, el);
-      }
+      };
     }
 
     $(ReactDOM.findDOMNode(this)).dropdown(opts);
@@ -28,7 +29,7 @@ Dropdown = React.createClass({
     if (this.props.defaultValue) {
       $(ReactDOM.findDOMNode(this)).dropdown("set selected", this.props.defaultValue);
     }
-  },
+  }
   
   render () {
     let {
@@ -61,10 +62,12 @@ Dropdown = React.createClass({
           {this.props.options.map((item, i) => {
             return <div key={i} className="item" data-value={item.value}>
               {item.name}
-            </div>
+            </div>;
           })}
         </div>
       </Unit>
     );
-  },
-});
+  }
+};
+
+export default classGenerator(stateSelector(Dropdown));

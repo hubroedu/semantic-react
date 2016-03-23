@@ -1,4 +1,4 @@
-Feed = React.createClass({
+Feed = class extends React.Component {
 
   mixins: [Mixins.classGenerator],
 

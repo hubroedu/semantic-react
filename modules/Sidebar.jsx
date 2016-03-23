@@ -1,4 +1,4 @@
-Sidebar = React.createClass({
+Sidebar = class extends React.Component {
 
   mixins: [Mixins.classGenerator],
 

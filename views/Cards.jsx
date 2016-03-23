@@ -1,8 +1,8 @@
-Cards = React.createClass({
+Cards = class extends React.Component {
   
   mixins: [Mixins.classGenerator],
   
-  render() {
+  render () {
     return <div className={this.getClasses("ui cards")}>
       {this.props.children}
     </div>;

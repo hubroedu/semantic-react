@@ -1,24 +1,28 @@
+import React, {PropTypes} from "react";
 
-let colorArray = [
+const colorArray = [
   'black', 'yellow', 'green', 'blue',
   'orange', 'purple', 'red', 'teal'
 ];
 
-Mixins.colorSelector = {
-  propTypes: {
-    color: React.PropTypes.oneOf(colorArray)
-  },
+export default (Inner) => class extends React.Component {
+  propTypes = {
+    color: PropTypes.oneOf(colorArray)
+  }
 
   getColor () {
     let color = 'null';
 
     if (typeof this.props.color !== 'undefined') {
-
       if (colorArray.indexOf(this.props.color) !== -1) {
         color = this.props.color;
       }
     }
 
     return color;
+  }
+  
+  render () {
+    return <Inner {...this.props} getColor={this.getColor} />;
   }
 };

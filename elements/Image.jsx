@@ -1,9 +1,8 @@
-Image = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.stateSelector],
-
+const Image = class extends React.Component {
   render () {
-
     let {className, type, disabled, src, ...other} = this.props;
     let uiClass = "";
     
@@ -13,9 +12,7 @@ Image = React.createClass({
     } else {
       type = "div";
     }
-    
-    
-    
+
     return (
       <Unit {...other}
         src={src}
@@ -27,4 +24,6 @@ Image = React.createClass({
       </Unit>
     );
   }
-});
+};
+
+export default classGenerator(stateSelector(Image));

@@ -1,16 +1,18 @@
-Mixins.stateSelector = {
+import React, {PropTypes} from "react";
+
+export default (Inner) => class extends React.Component {
 
   propTypes: {
-    disabled: React.PropTypes.bool,
-    active: React.PropTypes.bool,
-    loading: React.PropTypes.bool,
-    focus: React.PropTypes.bool,
-    error: React.PropTypes.bool,
-    completed: React.PropTypes.bool,
-    readOnly: React.PropTypes.bool,
-    success: React.PropTypes.bool,
-    warning: React.PropTypes.bool
-  },
+    disabled: PropTypes.bool,
+    active: PropTypes.bool,
+    loading: PropTypes.bool,
+    focus: PropTypes.bool,
+    error: PropTypes.bool,
+    completed: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    success: PropTypes.bool,
+    warning: PropTypes.bool
+  }
 
   getDisabled () {
     let disabled = false;
@@ -20,7 +22,7 @@ Mixins.stateSelector = {
     }
 
     return disabled;
-  },
+  }
 
   getActive () {
     let active = false;
@@ -30,7 +32,7 @@ Mixins.stateSelector = {
     }
 
     return active;
-  },
+  }
 
   getLoading () {
     let loading = false;
@@ -40,7 +42,7 @@ Mixins.stateSelector = {
     }
 
     return loading;
-  },
+  }
 
   getFocus () {
     let focus = false;
@@ -50,7 +52,7 @@ Mixins.stateSelector = {
     }
 
     return focus;
-  },
+  }
 
   getError () {
     let error = false;
@@ -60,7 +62,7 @@ Mixins.stateSelector = {
     }
 
     return error;
-  },
+  }
 
   getCompleted () {
     let completed = false;
@@ -70,7 +72,7 @@ Mixins.stateSelector = {
     }
 
     return completed;
-  },
+  }
 
   getReadOnly () {
     let readOnly = false;
@@ -80,7 +82,7 @@ Mixins.stateSelector = {
     }
 
     return readOnly;
-  },
+  }
 
   getSuccess () {
     let success = false;
@@ -90,7 +92,7 @@ Mixins.stateSelector = {
     }
 
     return success;
-  },
+  }
 
   getWarning () {
     let warning = false;
@@ -100,5 +102,19 @@ Mixins.stateSelector = {
     }
 
     return warning;
+  }
+  
+  render () {
+    return <Inner
+      {...this.props}
+      getDisabled={this.getDisabled}
+      getActive={this.getActive}
+      getLoading={this.getLoading}
+      getFocus={this.getFocus}
+      getError={this.getError}
+      getCompleted={this.getCompleted}
+      getReadOnly={this.getReadOnly}
+      getSuccess={this.getSuccess}
+      getWarning={this.getWarning} />;
   }
 };

@@ -1,6 +1,9 @@
+import React, {PropTypes} from "react";
+import { classGenerator } from "../../mixins";
+
 const isDefined = val => !_.isUndefined(val) && !_.isNull(val);
 
-RadioInput = React.createClass({
+const RadioInput = class extends React.Component {
   render () {
     const {
       name,
@@ -24,11 +27,15 @@ RadioInput = React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+};
 
-RadioGroup = React.createClass({
-  mixins: [Mixins.classGenerator],
+RadioInput = classGenerator(RadioInput);
+
+export default RadioInput;
+
+
+const RadioGroup = class extends React.Component {
   
   componentWillReceiveProps (newProps) {
     const defaultValue = this.props.defaultValue;
@@ -36,14 +43,14 @@ RadioGroup = React.createClass({
     if (!isDefined(defaultValue) && isDefined(newProps.defaultValue)) {
       this.setChecked(newProps.defaultValue);
     }
-  },
+  }
   
   setChecked (value) {
     $(this.refs.checkboxes)
       .find(".ui.radio.checkbox input[value=" + value + "]")
       .parent()
         .checkbox("check");
-  },
+  }
   
   componentDidMount () {
     let component = this;
@@ -57,15 +64,15 @@ RadioGroup = React.createClass({
     if (defaultValue) {
       this.setChecked(defaultValue);
     }
-  },
+  }
   
   onChange (value, a) {
     if (this.props.onChange) {
       this.props.onChange(this.props.name, value);
     }
-  },
+  }
   
-  render() {
+  render () {
     let name = this.props.name;
     
     let childrenWithProps = React.Children.map(this.props.children, child => {
@@ -78,5 +85,8 @@ RadioGroup = React.createClass({
       </div>
     );
   }
-});
+};
 
+RadioGroup = classGenerator(RadioGroup);
+
+export default RadioGroup;

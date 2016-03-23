@@ -1,9 +1,8 @@
-Rail = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+const Rail = class extends React.Component {
   render () {
-
     let {className, ...other} = this.props;
 
     return (
@@ -12,4 +11,6 @@ Rail = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Rail);

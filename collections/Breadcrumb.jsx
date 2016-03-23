@@ -1,9 +1,8 @@
-Breadcrumb = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+const Breadcrumb = class extends React.Component {
   render () {
-
     let {className, ...other} = this.props;
 
     return (
@@ -12,4 +11,8 @@ Breadcrumb = React.createClass({
       </div>
     );
   }
-});
+};
+
+Breadcrumb = classGenerator(Breadcrumb);
+
+export default Breadcrumb;

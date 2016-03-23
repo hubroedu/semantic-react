@@ -1,4 +1,4 @@
-Comments = React.createClass({
+Comments = class extends React.Component {
 
   mixins: [Mixins.classGenerator],
 

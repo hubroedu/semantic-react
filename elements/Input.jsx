@@ -1,33 +1,33 @@
-Input = React.createClass({
-  
-  mixins: [Mixins.classGenerator, Mixins.stateSelector],
-  
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
+
+const Input = class extends React.Component {
   propTypes: {
-    onChange: React.PropTypes.func,
-    name: React.PropTypes.string,
-    label: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    type: React.PropTypes.string,
-    rows: React.PropTypes.number,
-    min: React.PropTypes.number,
-    max: React.PropTypes.number,
-    step: React.PropTypes.number,
-  },
+    onChange: PropTypes.func,
+    name: PropTypes.string,
+    label: PropTypes.string,
+    placeholder: PropTypes.string,
+    type: PropTypes.string,
+    rows: PropTypes.number,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    step: PropTypes.number,
+  }
   
   handleChange (e) {
-      let value = e.target.value;
-      let name = this.props.name;
-      
-      if (this.props.type === "number") {
-        value = +value;
-      }
+    let value = e.target.value;
+    let name = this.props.name;
+    
+    if (this.props.type === "number") {
+      value = +value;
+    }
 
-      if (this.props.onChange) {
-        this.props.onChange(name, value, e);
-      }
-  },
+    if (this.props.onChange) {
+      this.props.onChange(name, value, e);
+    }
+  }
   
-  render() {
+  render () {
     let {
       label,
       id,
@@ -57,10 +57,10 @@ Input = React.createClass({
       <div className={this.getClasses("ui", "input")}>
         
         {icon ?
-          <Icon icon={icon} />: null}
+          <Icon icon={icon} /> : null}
         
         {label ?
-          <label for={id}>{label}</label>: null}
+          <label for={id}>{label}</label> : null}
         
         {type === "textarea" ?
           <textarea
@@ -79,11 +79,12 @@ Input = React.createClass({
             step={step}
             onChange={this.handleChange}
             placeholder={placeholder} />
-            
         }
         
         {children}
       </div>
     );
   }
-});
+};
+
+export default classGenerator(stateSelector(Input));

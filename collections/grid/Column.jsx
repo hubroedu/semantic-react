@@ -1,7 +1,8 @@
-Column = React.createClass({
-  mixins: [Mixins.classGenerator],
-  
-  render() {
+import React, {PropTypes} from "react";
+import { classGenerator } from "../../mixins";
+
+const Column = class extends React.Component {
+  render () {
     let {
       className,
       ...other
@@ -11,4 +12,8 @@ Column = React.createClass({
       {this.props.children}
     </div>;
   }
-});
+};
+
+Column = classGenerator(Column);
+
+export default Column;

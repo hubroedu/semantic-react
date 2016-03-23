@@ -1,6 +1,7 @@
-Left = React.createClass({
-  mixins: [Mixins.classGenerator],
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
+const Left = class extends React.Component {
   render () {
     let {className, children, ...other} = this.props;
     let style = {
@@ -13,4 +14,6 @@ Left = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Left);

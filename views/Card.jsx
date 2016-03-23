@@ -1,8 +1,8 @@
-Card = React.createClass({
+Card = class extends React.Component {
   
   mixins: [Mixins.classGenerator],
   
-  render() {
+  render () {
     let {
       type,
       className,

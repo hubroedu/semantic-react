@@ -1,9 +1,32 @@
-Dimmer = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.stateSelector],
+const Dimmer = class extends React.Component {
+  
+  componentDidMount () {
+    let opts = {};
+    
+    if (typeof this.props.init !== 'undefined') {
+      if (this.props.init === false) {
+        return;
+      }
+      
+      if (typeof this.props.init === 'object') {
+        opts = _.extend(opts, this.props.init);
+      }
+    }
+    
+    if (this.props.onChange) {
+      opts.onChange = (value, label, el) => {
+        let name = this.props.name;
+        this.props.onChange(name, value, el);
+      };
+    }
 
+    $(ReactDOM.findDOMNode(this)).dimmer(opts);
+  }
+  
   render () {
-
     let {className, color, type, disabled, active, ...other} = this.props;
 
     return (
@@ -16,19 +39,7 @@ Dimmer = React.createClass({
         {this.props.children}
       </Unit>
     );
-  },
-
-  componentDidMount () {
-    if (typeof this.props.init != 'undefined') {
-      if (this.props.init === false) {
-        return;
-      }
-
-      if (this.props.init) {
-        $(ReactDOM.findDOMNode(this)).dimmer(this.props.init);
-      } else {
-        $(ReactDOM.findDOMNode(this)).dimmer();
-      }
-    }
   }
-});
+};
+
+export default classGenerator(stateSelector(Dimmer));

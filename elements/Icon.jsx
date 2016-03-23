@@ -1,9 +1,8 @@
-Icon = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, colorSelector, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.colorSelector, Mixins.stateSelector],
-
+const Icon = class extends React.Component {
   render () {
-
     let {className, icon, color, ...other} = this.props;
 
     return (
@@ -15,4 +14,6 @@ Icon = React.createClass({
         loading={this.getLoading()} />
     );
   }
-});
+};
+
+export default classGenerator(colorSelector(stateSelector(Icon)));

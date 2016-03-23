@@ -1,9 +1,8 @@
-Segment = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, colorSelector, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.colorSelector, Mixins.stateSelector],
-
+const Segment = class extends React.Component {
   render () {
-
     let {className, children, color, ...other} = this.props;
 
     return (
@@ -18,4 +17,7 @@ Segment = React.createClass({
       </Unit>
     );
   }
-});
+};
+
+export default classGenerator(colorSelector(stateSelector(Segment)));
+

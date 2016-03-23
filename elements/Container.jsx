@@ -1,9 +1,8 @@
-Container = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+let Container = class extends React.Component {
   render () {
-
     let {className, children, ...other} = this.props;
 
     return (
@@ -12,4 +11,8 @@ Container = React.createClass({
       </div>
     );
   }
-});
+};
+
+Container = classGenerator(Container);
+
+export default Container;

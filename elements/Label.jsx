@@ -1,7 +1,7 @@
-Label = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, colorSelector, typeSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.colorSelector, Mixins.typeSelector],
-
+const Label = class extends React.Component {
   render () {
     let {className, type, color, ...other} = this.props;
 
@@ -14,4 +14,6 @@ Label = React.createClass({
       </Unit>
     );
   }
-});
+};
+
+export default classGenerator(colorSelector(typeSelector(Label)));

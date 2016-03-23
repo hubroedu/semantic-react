@@ -1,21 +1,24 @@
-DropdownItem = React.createClass({
-  mixins: [Mixins.classGenerator],
+import React, {PropTypes} from "react";
+import { classGenerator } from "../../mixins";
+
+
+const DropdownItem = class extends React.Component {
   
   propTypes: {
-    label: React.PropTypes.any.isRequired,
-  },
+    label: PropTypes.any.isRequired,
+  }
   
   getInitialState () {
     return {
       opened: false
-    }
-  },
+    };
+  }
   
   toggleOpen () {
     this.setState({ opened: !this.state.opened });
-  },
+  }
   
-  render() {
+  render () {
     let {
       label,
       children,
@@ -29,7 +32,7 @@ DropdownItem = React.createClass({
     
     let menu = (
       <Menu
-        className={(open ? "open" : "") +" fluid vertical inverted grey"}
+        className={(open ? "open" : "") + " fluid vertical inverted grey"}
         style={menuStyle}>
         
         {children}
@@ -63,4 +66,9 @@ DropdownItem = React.createClass({
       </div>
     );
   }
-});
+};
+
+
+DropdownItem = classGenerator(DropdownItem);
+
+export default DropdownItem;

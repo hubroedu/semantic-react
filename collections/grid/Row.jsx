@@ -1,7 +1,8 @@
-Row = React.createClass({
-  mixins: [Mixins.classGenerator],
-  
-  render() {
+import React, {PropTypes} from "react";
+import { classGenerator } from "../../mixins";
+
+const Row = class extends React.Component {
+  render () {
     let {
       className,
       ...other
@@ -11,4 +12,8 @@ Row = React.createClass({
       {this.props.children}
     </div>;
   }
-});
+};
+
+Row = classGenerator(Row);
+
+export default Row;

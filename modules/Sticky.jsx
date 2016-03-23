@@ -1,4 +1,4 @@
-Sticky = React.createClass({
+Sticky = class extends React.Component {
   mixins: [Mixins.classGenerator],
 
   render () {

@@ -1,4 +1,4 @@
-Rating = React.createClass({
+Rating = class extends React.Component {
 
   mixins: [Mixins.classGenerator],
 

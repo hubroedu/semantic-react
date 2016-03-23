@@ -4,23 +4,23 @@
   http://jedwatson.github.io/classnames
 */
 
-var hasOwn = {}.hasOwnProperty;
+const hasOwn = {}.hasOwnProperty;
 
-classNames = function () {
-  var classes = [];
+const classNames = function () {
+  let classes = [];
 
-  for (var i = 0; i < arguments.length; i++) {
-    var arg = arguments[i];
+  for (let i = 0; i < arguments.length; i++) {
+    let arg = arguments[i];
     if (!arg) continue;
 
-    var argType = typeof arg;
+    let argType = typeof arg;
 
     if (argType === 'string' || argType === 'number') {
       classes.push(arg);
     } else if (Array.isArray(arg)) {
       classes.push(classNames.apply(null, arg));
     } else if (argType === 'object') {
-      for (var key in arg) {
+      for (let key in arg) {
         if (hasOwn.call(arg, key) && arg[key]) {
           classes.push(key);
         }
@@ -29,6 +29,6 @@ classNames = function () {
   }
 
   return classes.join(' ');
-}
+};
 
-classSet = classNames;
+export default classNames;

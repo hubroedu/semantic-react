@@ -1,4 +1,4 @@
-TabMenu = React.createClass({
+TabMenu = class extends React.Component {
   propTypes: {
     tab: React.PropTypes.string,
   },
@@ -9,7 +9,7 @@ TabMenu = React.createClass({
       $('.menu .item').tab();
   },
   
-  render() {
+  render () {
     return <div className={this.getClasses("ui", "menu")}>
       {this.props.children}
     </div>;

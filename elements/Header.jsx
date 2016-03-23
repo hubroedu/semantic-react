@@ -1,9 +1,9 @@
-Header = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator, colorSelector, typeSelector, stateSelector } from "../mixins";
 
-  mixins: [Mixins.classGenerator, Mixins.colorSelector, Mixins.typeSelector, Mixins.stateSelector],
 
+const Header = class extends React.Component {
   render () {
-
     let {className, type, children, color, ...other} = this.props;
 
     return (
@@ -16,14 +16,13 @@ Header = React.createClass({
       </Unit>
     );
   }
-});
+};
 
-SubHeader = React.createClass({
+export default classGenerator(colorSelector(typeSelector(stateSelector(Header))));
 
-  mixins: [Mixins.classGenerator],
 
+const SubHeader = class extends React.Component {
   render () {
-
     let {className, children, ...other} = this.props;
 
     return (
@@ -32,4 +31,6 @@ SubHeader = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(SubHeader);

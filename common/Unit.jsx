@@ -1,13 +1,14 @@
-Unit = React.createClass({
+import React, {PropTypes} from "react";
+
+const Unit = class extends React.Component {
 
   propTypes: {
-    className: React.PropTypes.string.isRequired,
-    type: React.PropTypes.string.isRequired,
-    color: React.PropTypes.string.isRequired
-  },
+    className: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired
+  }
 
   render () {
-
     let {
       className, type, color, value,
       disabled, active, loading,
@@ -15,58 +16,57 @@ Unit = React.createClass({
     } = this.props;
 
     switch (type) {
+    case 'link':
+      return (
+        <a {...other}
+          className={this._generateClassName()}
+          data-value={value}>
+          {this.props.children}
+        </a>
+      );
+      
+    case 'button':
+      return (
+        <button {...other}
+          className={this._generateClassName()}
+          data-value={value}>
+          {this.props.children}
+        </button>
+      );
 
-      case 'link':
-        return (
-          <a {...other}
-            className={this._generateClassName()}
-            data-value={value}>
-            {this.props.children}
-          </a>
-        );
-        
-      case 'button':
-        return (
-          <button {...other}
-            className={this._generateClassName()}
-            data-value={value}>
-            {this.props.children}
-          </button>
-        );
+    case 'icon':
+      return (
+        <i {...other}
+          className={this._generateClassName()}
+          data-value={value}>
+          {this.props.children}
+        </i>
+      );
 
-      case 'icon':
-        return (
-          <i {...other}
-            className={this._generateClassName()}
-            data-value={value}>
-            {this.props.children}
-          </i>
-        );
+    case 'img':
+      return (
+        <img {...other}
+          className={this._generateClassName()}>
+          {this.props.children}
+        </img>
+      );
 
-      case 'img':
-        return (
-          <img {...other}
-            className={this._generateClassName()}>
-            {this.props.children}
-          </img>
-        );
-
-      case 'div':
-      default:
-        return (
-          <div {...other}
-            className={this._generateClassName()}
-            data-value={value}>
-            {this.props.children}
-          </div>
-        );
+    case 'div':
+    default:
+      return (
+        <div {...other}
+          className={this._generateClassName()}
+          data-value={value}>
+          {this.props.children}
+        </div>
+      );
     }
-  },
+  }
 
   _generateClassName () {
     let className = this.props.className;
 
-    if (this.props.color != 'null') {
+    if (this.props.color !== 'null') {
       className += ' ' + this.props.color;
     }
 
@@ -82,4 +82,8 @@ Unit = React.createClass({
 
     return className;
   }
-});
+};
+
+Unit = classGenerator(Unit);
+
+export default Unit;

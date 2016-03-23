@@ -1,24 +1,12 @@
-Accordion = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
-  render () {
-    return (
-      <div
-        className={this.getClasses("ui", "accordion")}
-        ref="accordion"
-      >
-        {this.props.children}
-      </div>
-    );
-  },
+const Accordion = class extends React.Component {
 
   componentDidMount () {
-    let opts = {
-
-    };
+    let opts = {};
     
-    if (typeof this.props.init != 'undefined') {
+    if (typeof this.props.init !== 'undefined') {
       if (this.props.init === false) {
         return;
       }
@@ -32,9 +20,22 @@ Accordion = React.createClass({
       opts.onChange = (value, label, el) => {
         let name = this.props.name;
         this.props.onChange(name, value, el);
-      }
+      };
     }
 
     $(ReactDOM.findDOMNode(this)).accordion(opts);
   }
-});
+  
+  render () {
+    return (
+      <div
+        className={this.getClasses("ui", "accordion")}
+        ref="accordion"
+      >
+        {this.props.children}
+      </div>
+    );
+  }
+};
+
+export default classGenerator(Accordion);

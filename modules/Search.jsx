@@ -1,4 +1,4 @@
-Search = React.createClass({
+Search = class extends React.Component {
 
   mixins: [Mixins.classGenerator, Mixins.stateSelector],
 

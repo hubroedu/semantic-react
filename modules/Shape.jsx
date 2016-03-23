@@ -1,4 +1,4 @@
-Shape = React.createClass({
+Shape = class extends React.Component {
 
   mixins: [Mixins.classGenerator],
 

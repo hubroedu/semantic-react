@@ -1,4 +1,4 @@
-Progress = React.createClass({
+Progress = class extends React.Component {
   mixins: [
     Mixins.classGenerator,
     Mixins.stateSelector,
@@ -70,7 +70,7 @@ Progress = React.createClass({
     }
   },
   
-  render() {
+  render () {
     let defaultStyle = {
       marginBottom: (this.props.showTimeRemaining || this.props.label) ? "": "0px"
     };

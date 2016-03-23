@@ -1,7 +1,7 @@
 
 const isDefined = val => !_.isUndefined(val) && !_.isNull(val);
 
-Statistic = React.createClass({
+Statistic = class extends React.Component {
   mixins: [Mixins.classGenerator],
   
   renderHorizontal (args) {

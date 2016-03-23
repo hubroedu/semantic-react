@@ -1,9 +1,8 @@
-Message = React.createClass({
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
-  mixins: [Mixins.classGenerator],
-
+const Message = class extends React.Component {
   render () {
-
     let {className, ...other} = this.props;
 
     return (
@@ -12,4 +11,10 @@ Message = React.createClass({
       </div>
     );
   }
-});
+};
+
+
+Message = classGenerator(Message);
+
+export default Message;
+

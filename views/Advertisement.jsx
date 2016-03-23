@@ -1,4 +1,4 @@
-Ad = React.createClass({
+Ad = class extends React.Component {
   mixins: [Mixins.classGenerator],
 
   render () {

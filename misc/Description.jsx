@@ -1,6 +1,7 @@
-Description = React.createClass({
-  mixins: [Mixins.classGenerator],
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
 
+const Description = class extends React.Component {
   render () {
     let {className, children, ...other} = this.props;
 
@@ -10,4 +11,6 @@ Description = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Description);

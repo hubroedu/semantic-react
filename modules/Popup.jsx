@@ -1,8 +1,7 @@
-Popup = React.createClass({
-  mixins: [
-    Mixins.classGenerator,
-  ],
+import React, {PropTypes} from "react";
+import { classGenerator, stateSelector } from "../mixins";
 
+Popup = class extends React.Component {
   componentDidMount () {
     let popup = $(this.refs.pop);
     let container = popup.parent();
@@ -10,7 +9,7 @@ Popup = React.createClass({
     container.popup({
       popup,
     });
-  },
+  }
 
   render () {
     return (
@@ -19,4 +18,6 @@ Popup = React.createClass({
       </div>
     );
   }
-});
+};
+
+export default classGenerator(Popup);

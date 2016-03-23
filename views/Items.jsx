@@ -1,7 +1,7 @@
-Items = React.createClass({
+Items = class extends React.Component {
   mixins: [Mixins.classGenerator],
   
-  render() {
+  render () {
     return <div className={this.getClasses("ui items")}>
       {this.props.children}
     </div>;

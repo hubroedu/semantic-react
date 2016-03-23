@@ -1,13 +1,17 @@
-Mixins.classGenerator = {
+import {React, PropTypes} from "react";
+
+import classSet from "../classnames.js";
+
+export default (Inner) => class extends React.Component {
   propTypes: {
-    className: React.PropTypes.string
-  },
+    className: PropTypes.string
+  }
   
   getClasses (defaultClass, addClassName, semanticClass) {
     let props = this.props;
     let classes = defaultClass;
     
-    classes += props.className ? ` ${props.className} `: "";
+    classes += props.className ? ` ${props.className} ` : "";
     
     if (props.color) {
       classes += " " + props.color;
@@ -30,5 +34,9 @@ Mixins.classGenerator = {
     }
     
     return classes;
-  },
+  }
+  
+  render () {
+    return <Inner {...this.props} getClasses={this.getClasses} />;
+  }
 };

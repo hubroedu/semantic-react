@@ -1,9 +1,12 @@
-List = React.createClass({
-  mixins: [Mixins.classGenerator],
-  
-  render() {
+import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
+
+const List = class extends React.Component {
+  render () {
     return <div className={this.getClasses("ui", "list")}>
       {this.props.children}
     </div>;
   }
-});
+};
+
+export default classGenerator(List);
