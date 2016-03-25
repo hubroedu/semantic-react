@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator, stateSelector } from "../mixins";
+import {Icon} from "./Icon.jsx";
 
 const Input = class extends React.Component {
   
