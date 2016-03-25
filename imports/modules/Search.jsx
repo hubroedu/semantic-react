@@ -1,5 +1,7 @@
 import React, {PropTypes} from "react";
+import ReactDOM from "react-dom";
 import { classGenerator, stateSelector } from "../mixins";
+import Unit from "../common/Unit.jsx";
 
 const Search = class extends React.Component {
   render () {

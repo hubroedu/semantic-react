@@ -1,4 +1,5 @@
 import React, {PropTypes} from "react";
+import ReactDOM from "react-dom";
 import { classGenerator } from "../mixins";
 
 const Accordion = class extends React.Component {

@@ -34,7 +34,7 @@ const classGenerator = (Inner) => class extends React.Component {
   }
   
   render () {
-    return <Inner {...this.props} getClasses={this.getClasses} />;
+    return <Inner {...this.props} getClasses={this.getClasses.bind(this)} />;
   }
 };
 

@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator, colorSelector, stateSelector } from "../mixins";
+import Unit from "../common/Unit.jsx";
 
 const Segment = class extends React.Component {
   render () {

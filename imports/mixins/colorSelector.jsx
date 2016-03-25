@@ -20,7 +20,7 @@ const colorSelector = (Inner) => class extends React.Component {
   }
   
   render () {
-    return <Inner {...this.props} getColor={this.getColor} />;
+    return <Inner {...this.props} getColor={this.getColor.bind(this)} />;
   }
 };
 

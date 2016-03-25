@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator, typeSelector } from "../mixins";
+import Unit from "../common/Unit.jsx";
 
 const Item = class extends React.Component {
   hasContent () {

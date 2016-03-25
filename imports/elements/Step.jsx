@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator, stateSelector } from "../mixins";
+import Unit from "../common/Unit.jsx";
 
 const Step = class extends React.Component {
   render () {

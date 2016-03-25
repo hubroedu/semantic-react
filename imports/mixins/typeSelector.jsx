@@ -16,7 +16,7 @@ const typeSelector = (Inner) => class extends React.Component {
   }
   
   render () {
-    return <Inner {...this.props} getType={this.getType} />;
+    return <Inner {...this.props} getType={this.getType.bind(this)} />;
   }
 };
 

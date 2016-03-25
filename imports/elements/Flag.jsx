@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator } from "../mixins";
+import Unit from "../common/Unit.jsx";
 
 const Flag = class extends React.Component {
   render () {

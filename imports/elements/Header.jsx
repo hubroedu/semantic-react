@@ -1,6 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator, colorSelector, typeSelector, stateSelector } from "../mixins";
-
+import Unit from "../common/Unit.jsx";
 
 const Header = class extends React.Component {
   render () {

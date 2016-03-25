@@ -95,15 +95,15 @@ const stateSelector = (Inner) => class extends React.Component {
   render () {
     return <Inner
       {...this.props}
-      getDisabled={this.getDisabled}
-      getActive={this.getActive}
-      getLoading={this.getLoading}
-      getFocus={this.getFocus}
-      getError={this.getError}
-      getCompleted={this.getCompleted}
-      getReadOnly={this.getReadOnly}
-      getSuccess={this.getSuccess}
-      getWarning={this.getWarning} />;
+      getDisabled={this.getDisabled.bind(this)}
+      getActive={this.getActive.bind(this)}
+      getLoading={this.getLoading.bind(this)}
+      getFocus={this.getFocus.bind(this)}
+      getError={this.getError.bind(this)}
+      getCompleted={this.getCompleted.bind(this)}
+      getReadOnly={this.getReadOnly.bind(this)}
+      getSuccess={this.getSuccess.bind(this)}
+      getWarning={this.getWarning.bind(this)} />;
   }
 };
 

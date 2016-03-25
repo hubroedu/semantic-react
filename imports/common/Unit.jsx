@@ -1,15 +1,11 @@
 import React, {PropTypes} from "react";
+import { classGenerator } from "../mixins";
+import classNames from "../classnames.js";
 
 const Unit = class extends React.Component {
 
-  propTypes: {
-    className: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired
-  }
-
   render () {
-    let {
+    const {
       className, type, color, value,
       disabled, active, loading,
       ...other
@@ -84,6 +80,10 @@ const Unit = class extends React.Component {
   }
 };
 
-Unit = classGenerator(Unit);
+Unit.propTypes = {
+  className: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
+};
 
-export default Unit;
+export default classGenerator(Unit);

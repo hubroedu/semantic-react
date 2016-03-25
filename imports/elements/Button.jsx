@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import { classGenerator, stateSelector, colorSelector } from "../mixins";
+import Unit from "../common/Unit.jsx";
 
 let Button = class extends React.Component {
   render () {
