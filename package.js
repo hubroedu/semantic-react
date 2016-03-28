@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Npm.depends({
-  react: '0.14.3'
+  
 });
 
 Package.onUse(function (api) {
