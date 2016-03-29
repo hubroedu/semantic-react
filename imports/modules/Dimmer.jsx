@@ -34,6 +34,7 @@ const Dimmer = class extends React.Component {
 
     return (
       <Unit
+        {...other}
         className={this.props.getClasses("ui", "dimmer")}
         color="null"
         type="div"
