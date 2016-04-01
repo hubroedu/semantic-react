@@ -5,6 +5,13 @@ import Icon from "./Icon.jsx";
 
 const Input = class extends React.Component {
   
+  constructor (props) {
+    super(props);
+    
+    this.handleChange = this.handleChange.bind(this);
+    this.render = this.render.bind(this);
+  }
+  
   handleChange (e) {
     let value = e.target.value;
     let name = this.props.name;

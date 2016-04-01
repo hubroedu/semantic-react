@@ -15,6 +15,7 @@ export {default as Container}       from "./imports/elements/Container.jsx";
 export {default as Divider}         from "./imports/elements/Divider.jsx";
 export {default as Flag}            from "./imports/elements/Flag.jsx";
 export {default as Header}          from "./imports/elements/Header.jsx";
+export {default as SubHeader}          from "./imports/elements/SubHeader.jsx";
 export {default as Icon}            from "./imports/elements/Icon.jsx";
 export {default as Image}           from "./imports/elements/Image.jsx";
 export {default as Input}           from "./imports/elements/Input.jsx";

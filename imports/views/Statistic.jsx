@@ -1,6 +1,7 @@
 import _ from "lodash";
 import React, {PropTypes} from "react";
 import { classGenerator } from "../mixins";
+import Icon from "../elements/Icon.jsx";
 
 const isDefined = val => !_.isUndefined(val) && !_.isNull(val);
 

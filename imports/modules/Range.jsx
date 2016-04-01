@@ -1,7 +1,18 @@
 import React, {PropTypes} from "react";
 import { classGenerator, stateSelector } from "../mixins";
+import { Grid, Column } from "../collections/grid";
 
 const Range = class extends React.Component {
+  
+  constructor (props) {
+    super(props);
+    
+    this.onChange = this.onChange.bind(this);
+    
+    this.state = {
+      value: this.props.defaultValue || 0
+    };
+  }
   
   onChange (e) {
     let value = +this.refs.range.value;
@@ -12,12 +23,6 @@ const Range = class extends React.Component {
     if (onChange) {
       onChange(name, value);
     }
-  }
-  
-  getInitialState () {
-    return {
-      value: this.props.defaultValue || 0
-    };
   }
   
   render () {

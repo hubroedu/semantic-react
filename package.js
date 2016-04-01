@@ -8,11 +8,22 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom("1.3-rc.12");
-
+  
+  api.use([
+    "jquery@1.11.6",
+  ], "client");
+  
   api.use("ecmascript@0.4.1-rc.8");
   api.use("mquandalle:stylus@1.1.1");
   
   api.mainModule("index.js", "client");
+  
+  api.addFiles([
+    "styles/DropdownItem.styl",
+    "styles/range.styl",
+    "styles/statistic.styl",
+    "styles/table.styl",
+  ]);
   
   api.export([
     "classSet",
