@@ -1,6 +1,8 @@
 import React, {PropTypes} from "react";
 import { classGenerator } from "../../mixins";
 
+const isDefined = val => !_.isUndefined(val) && !_.isNull(val);
+
 const RadioGroup = class extends React.Component {
   
   componentWillReceiveProps (newProps) {
