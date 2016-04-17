@@ -1,6 +1,6 @@
 Package.describe({
   name: "hubroedu:semantic-react",
-  version: "0.2.9",
+  version: "0.2.10",
   summary: "Semantic-ui as useful react components, based on react-semantify, with additional functionality.",
   git: "https://github.com/hubroedu/semantic-react",
   documentation: "README.md"

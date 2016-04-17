@@ -1,4 +1,5 @@
 import _ from "lodash";
+import moment from "moment";
 import React, {PropTypes} from "react";
 import { classGenerator, stateSelector } from "../mixins";
 

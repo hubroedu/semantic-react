@@ -43,12 +43,15 @@ const Statistic = class extends React.Component {
       change,
       formatter,
       changeLabel,
+      indicating,
+      valueStyle,
       ...other
     } = args;
     
+    
     return (
       <div {...other} className={this.props.getClasses("ui", "statistic")}>
-        <div className="value">
+        <div className="value" style={valueStyle}>
           {formatter ? formatter(value) : value}
         </div>
         
