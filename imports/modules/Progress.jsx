@@ -5,6 +5,15 @@ import { classGenerator, stateSelector } from "../mixins";
 
 const Progress = class extends React.Component {
   
+  constructor (props) {
+    super(props);
+    
+    this.state = {
+      percent: props.percent,
+      label: ""
+    };
+  }
+  
   componentDidMount () {
     if (typeof this.props.init !== 'undefined') {
       if (this.props.init === false) {
@@ -21,13 +30,6 @@ const Progress = class extends React.Component {
     if (!_.isUndefined(this.props.timeFrom) && !_.isUndefined(this.props.timeTo)) {
       this.setInterval(this.tick, 1000);
     }
-  }
-  
-  getInitialState () {
-    return {
-      percent: this.props.percent,
-      label: ""
-    };
   }
   
   componentDidUpdate (prevProps, prevState) {

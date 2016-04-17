@@ -1,46 +1,77 @@
-import _ from "lodash";
-import React, {PropTypes} from "react";
+import React, { Component, PropTypes } from "react";
+import Portal from "react-portal";
 import ReactDOM from "react-dom";
-import { classGenerator, stateSelector } from "../mixins";
-import Unit from "../common/Unit.jsx";
 
-const Modal = class extends React.Component {
-  componentDidMount () {
-    let opts = {};
-    
-    if (typeof this.props.init !== 'undefined') {
-      if (this.props.init === false) {
-        return;
-      }
-      
-      if (typeof this.props.init === 'object') {
-        opts = _.extend(opts, this.props.init);
-      }
-    }
-    
-    if (this.props.onChange) {
-      opts.onChange = (value, label, el) => {
-        let name = this.props.name;
-        this.props.onChange(name, value, el);
-      };
-    }
-
-    $(ReactDOM.findDOMNode(this)).modal(opts);
+class InnerModal extends Component {
+  constructor (props) {
+    super(props);
+    this.state = { modalHeight: 0 };
   }
-  
+
+  componentDidMount () {
+    let modalHeight = window.$(ReactDOM.findDOMNode(this)).outerHeight();
+    this.setState({modalHeight: modalHeight});
+  }
+
   render () {
-    let {className, color, type, active, ...other} = this.props;
+    let className = `ui modal transition visible active ${this.props.style} ${this.props.size}`;
+
+    let closeIcon = null;
+    if (this.props.closeIcon) {
+      closeIcon = <i className="close icon" onClick={this.props.closePortal}></i>;
+    }
 
     return (
-      <Unit {...other}
-        className={this.props.getClasses("ui", "modal")}
-        color="null"
-        type="div"
-        active={this.props.getActive()}>
+      <div className={className} style={{ marginTop: - this.state.modalHeight / 2}}>
+        {closeIcon}
         {this.props.children}
-      </Unit>
+      </div>
     );
   }
+}
+
+InnerModal.propTypes = {
+  style: PropTypes.oneOf(["standard", "basic"]),
+  size: PropTypes.oneOf(["", "small", "large", "fullscreen"]),
+  closeIcon: PropTypes.bool
+};
+InnerModal.defaultProps = {
+  style: "standard",
+  size: ""
 };
 
-export default classGenerator(stateSelector(Modal));
+class Modal extends Component {
+  render () {
+    let className = `ui dimmer modals visible active page transition ${this.props.className}`;
+    return (
+      <Portal className={className}
+      isOpened={this.props.active}
+      closeOnEsc={this.props.closeOnEsc}
+      closeOnOutsideClick={this.props.closeOnOutsideClick}
+      onClose={this.props.onHide}>
+        <InnerModal style={this.props.style} size={this.props.size} closeIcon = {this.props.closeIcon}>
+          {this.props.children}
+        </InnerModal>
+      </Portal>
+    );
+  }
+}
+
+Modal.propTypes = {
+  active: PropTypes.bool.isRequired,
+  closeOnEsc: PropTypes.bool,
+  closeOnOutsideClick: PropTypes.bool,
+  onHide: PropTypes.func,
+  closeIcon: PropTypes.bool,
+  style: PropTypes.oneOf(["standard", "basic"]),
+  size: PropTypes.oneOf(["", "small", "large", "fullscreen"])
+};
+Modal.defaultProps = {
+  style: "standard",
+  size: "fullscreen",
+  closeOnOutsideClick: true,
+  closeOnEsc: true,
+  closeIcon: true,
+};
+
+export default Modal;
