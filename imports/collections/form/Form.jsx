@@ -2,6 +2,11 @@ import React, {PropTypes} from "react";
 import { classGenerator } from "../../mixins";
 
 const Form = class extends React.Component {
+  constructor (props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
   handleSubmit (e) {
     e.preventDefault();
     e.stopPropagation();

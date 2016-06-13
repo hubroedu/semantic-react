@@ -9,7 +9,7 @@ const Progress = class extends React.Component {
     super(props);
     
     this.state = {
-      percent: props.percent,
+      percent: props.percent || 100 * props.value / props.total,
       label: ""
     };
   }
@@ -25,6 +25,8 @@ const Progress = class extends React.Component {
       } else {
         $(this.refs.progress).progress(this.props.init);
       }
+    } else {
+      $(this.refs.progress).progress();
     }
     
     if (!_.isUndefined(this.props.timeFrom) && !_.isUndefined(this.props.timeTo)) {
@@ -46,7 +48,6 @@ const Progress = class extends React.Component {
     let timeFrom = this.props.timeFrom;
     let timeTo = this.props.timeTo;
     let timeNow = new Date();
-    
     let totalSecDiff = (timeTo - timeFrom) / 1000;
     let currentSecDiff = (timeTo - timeNow) / 1000;
     let percent = Math.floor(100 - (currentSecDiff / totalSecDiff) * 100);
@@ -88,7 +89,6 @@ const Progress = class extends React.Component {
     }
 
     let state = {
-      active: this.props.getActive(),
       success: this.props.getSuccess(),
       warning: this.props.getWarning(),
       error: this.props.getError(),

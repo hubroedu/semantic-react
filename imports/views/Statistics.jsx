@@ -3,9 +3,9 @@ import { classGenerator } from "../mixins";
 
 const Statistics = class extends React.Component {
   render () {
-    let props = this.props;
+    let { className, ...other } = this.props;
     
-    return <div className={this.props.getClasses("ui", "statistics")}>
+    return <div className={this.props.getClasses("ui", "statistics")} {...other}>
       {this.props.children}
     </div>;
   }

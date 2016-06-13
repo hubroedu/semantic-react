@@ -11,6 +11,7 @@ class InnerModal extends Component {
   componentDidMount () {
     let modalHeight = window.$(ReactDOM.findDOMNode(this)).outerHeight();
     this.setState({modalHeight: modalHeight});
+    
   }
 
   render () {
@@ -41,8 +42,9 @@ InnerModal.defaultProps = {
 };
 
 class Modal extends Component {
+  
   render () {
-    let className = `ui dimmer modals visible active page transition ${this.props.className}`;
+    let className = `ui modals visible active page transition ${this.props.className}`;
     return (
       <Portal className={className}
       isOpened={this.props.active}
@@ -66,6 +68,7 @@ Modal.propTypes = {
   style: PropTypes.oneOf(["standard", "basic"]),
   size: PropTypes.oneOf(["", "small", "large", "fullscreen"])
 };
+
 Modal.defaultProps = {
   style: "standard",
   size: "fullscreen",
