@@ -1,0 +1,76 @@
+
+.ui.range
+  width: 100%;
+  -webkit-appearance: none;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 0px;
+  height: auto;
+  background: transparent
+  z-index: 5
+  position: relative
+
+
+  &:focus
+    border-color: #ccc;
+    outline: none !important;
+  
+
+  &::-moz-range-track
+    background: none;
+    border: 0;
+  
+
+  &::-moz-focus-outer
+    border: 0;
+  
+
+  &::-webkit-slider-thumb
+    -webkit-appearance: none;
+    height: 2.5rem;
+    width: 1.0rem;
+
+    background: #fff;
+    background: #fff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    background: #fff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    background: #fff -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    background: #fff -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15),0 0 0 1px rgba(34,36,38,.15) inset;
+  
+
+  &::-moz-range-thumb
+    height: 2.5rem;
+    width: 1.0rem;
+
+    background: #fff;
+    background: #fff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    background: #fff -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    background: #fff -o-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    background: #fff -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+    border-radius: 2px;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,.15),0 0 0 1px rgba(34,36,38,.15) inset;
+  
+.range-grid
+  position: relative
+  z-index: 1
+
+  .label
+    text-align: center
+    margin: 9px 0
+  
+  .range-gfx
+    position: absolute
+    height: calc(100% - 34px)
+    top: 15px
+    left: 15px
+    width: calc(100% - 30px)
+    
+    .range-bg
+      background: #fff
+      height: 100%
+    
+    .range-fill
+      background: #ddd
+      position: absolute
+      height: 100%
