@@ -1,7 +1,7 @@
 import _ from "lodash";
 import moment from "moment";
 import React, {PropTypes} from "react";
-import { classGenerator, stateSelector } from "../mixins";
+import { classGenerator } from "../mixins";
 
 const Progress = class extends React.Component {
   
@@ -15,18 +15,22 @@ const Progress = class extends React.Component {
   }
   
   componentDidMount () {
+    const opts = { showActivity: false };
     if (typeof this.props.init !== 'undefined') {
       if (this.props.init === false) {
         return;
       }
-
+      
       if (this.props.init === true) {
-        $(this.refs.progress).progress();
+        $(this.refs.progress).progress(opts);
       } else {
-        $(this.refs.progress).progress(this.props.init);
+        $(this.refs.progress).progress({
+          ...opts,
+          ...this.props.init
+        });
       }
     } else {
-      $(this.refs.progress).progress();
+      $(this.refs.progress).progress(opts);
     }
     
     if (!_.isUndefined(this.props.timeFrom) && !_.isUndefined(this.props.timeTo)) {
@@ -88,21 +92,16 @@ const Progress = class extends React.Component {
       style = defaultStyle;
     }
 
-    let state = {
-      success: this.props.getSuccess(),
-      warning: this.props.getWarning(),
-      error: this.props.getError(),
-      disabled: this.props.getDisabled()
-    };
-    
     let barStyle = {
       width: this.state.percent + "%"
     };
-
+    
+    const classes = this.props.getClasses("ui progress");
+    
     return (
       <div {...other}
         style={style}
-        className={this.props.getClasses("ui progress", state)}
+        className={classes}
         data-percent={this.state.percent}
         data-value={value}
         data-total={total}
@@ -122,4 +121,4 @@ Progress.propTypes = {
   tab: PropTypes.string,
 };
 
-export default classGenerator(stateSelector(Progress));
+export default classGenerator(Progress);

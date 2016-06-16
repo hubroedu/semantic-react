@@ -31,7 +31,6 @@ const Checkbox = class extends React.Component {
         this.props.onChange(name, checked, el);
       };
     }
-    console.log("CHECKBOX OPS", opts);
     // $(this.refs.checkbox).checkbox();
     $(this.refs.checkbox).checkbox(opts);
     

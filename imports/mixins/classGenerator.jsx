@@ -18,18 +18,17 @@ const classGenerator = (Inner) => class extends React.Component {
       classes += " " + props.size;
     }
 
-    if (typeof addClassName !== 'undefined') {
-      if (typeof addClassName === 'object') {
-        classes += ' ' + classSet(addClassName);
+    if (typeof addClassName !== "undefined") {
+      if (typeof addClassName === "object") {
+        classes += " " + classSet(addClassName);
       } else {
-        classes += ' ' + addClassName;
+        classes += " " + addClassName;
       }
     }
     
-    if (typeof semanticClass !== 'undefined') {
+    if (typeof semanticClass !== "undefined") {
       classes += ` ${semanticClass}`;
     }
-    
     return classes;
   }
   
