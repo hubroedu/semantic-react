@@ -20,27 +20,16 @@ const Range = class extends React.Component {
     const {name, onChange} = this.props;
     let value;
     
-    console.log(type);
-    
     if (type === "range") {
-      console.log("using range");
       value = +this.refs.range.value;
     } else {
-      console.log("using numput");
       value = +this.refs.numput.value;
     }
     
-    console.log("VALUE", value, this.props.min, this.props.max);
     value = Math.min(this.props.max, Math.max(value, this.props.min));
     
     this.refs.numput.value = value;
     this.refs.range.value = value;
-    if (type === "range") {
-    } else {
-    }
-    
-    
-    console.log($(e.target), type, value, e);
     
     this.setState({ value });
     
