@@ -18,7 +18,7 @@ const Rating = class extends React.Component {
   
   initSemantic (opts = {}) {
     
-    if (typeof this.props.init != 'undefined') {
+    if (typeof this.props.init !== "undefined") {
       if (this.props.init === false) {
         return;
       }
@@ -29,13 +29,13 @@ const Rating = class extends React.Component {
         this.props.onChange(value);
       };
     }
-    if (typeof this.props.clearable != 'undefined') {
+    if (typeof this.props.clearable !== "undefined") {
       opts.clearable = this.props.clearable;
     }
-    if (typeof this.props.rating != 'undefined') {
+    if (typeof this.props.rating !== "undefined") {
       opts.initialRating = this.props.rating;
     }
-    if (typeof this.props.maxRating != 'undefined') {
+    if (typeof this.props.maxRating !== "undefined") {
       opts.maxRating = this.props.maxRating;
     }
     
@@ -47,10 +47,8 @@ const Rating = class extends React.Component {
   }
   
   componentDidUpdate (oldProps) {
-    console.log("updated");
     this.initSemantic();
     const newProps = this.props;
-    console.log(this.props, newProps);
     $(this.refs.rating).rating("setting", "initialRating", newProps.maxRating);
     $(this.refs.rating).rating("setting", "maxRating", newProps.maxRating);
   }

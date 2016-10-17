@@ -8,8 +8,6 @@ Semantic React components
 
 This package makes it easy to use the excellent [Semantic-UI](http://semantic-ui.com) css framework in React. It is __heavily__ borrowed/inspired by [react-semantify](https://github.com/jessy1092/react-semantify), but with some tweaks and additions. Having a meteor package was also a lot more convenient than messing around with browserify.
 
-Although this is a young package, we are already using it in our internal projects, and you can see an example of this package in use in [this project](https://github.com/jorgeer/colony).
-
 **Note!** You need to bring your own semantic-ui files, as they are not included.
 
 
@@ -22,43 +20,27 @@ Although this is a young package, we are already using it in our internal projec
 - [Installation](#installation)
 - [Overview](#overview)
 - [Docs](#docs)
-- [](#)
-  - [*Elements*](#elements)
-- [### *Elements*](#-elements)
-  - [Input](#input)
-      - [Common props:](#common-props)
-      - [Textarea props:](#textarea-props)
-      - [Number props:](#number-props)
-  - [Flag](#flag)
-      - [Props:](#props)
-  - [Icon](#icon)
-      - [Props:](#props-1)
-  - [Rail](#rail)
-  - [Step](#step)
-- [](#-1)
-- [### *Collections*](#-collections)
-  - [*Collections*](#collections)
-  - [Form](#form)
-  - [Grid](#grid)
-  - [Table](#table)
-  - [Menu](#menu)
-- [](#-2)
-  - [*Views*](#views)
-- [### *Views*](#-views)
-  - [Ads](#ads)
-  - [Card](#card)
-  - [Item](#item)
-  - [Statistic](#statistic)
-- [](#-3)
-- [### *Modules*](#-modules)
-  - [*Modules*](#modules)
-  - [Accordion](#accordion)
-  - [Checkbox](#checkbox)
-  - [Radio Input](#radio-input)
-  - [Dropdown](#dropdown)
-  - [Progress](#progress)
-  - [Tab](#tab)
-- [Tests](#tests)
+  - [Elements](#elements)
+    - [Input](#input)
+    - [Flag](#flag)
+    - [Icon](#icon)
+    - [Step](#step)
+  - [Collections](#collections)
+    - [Form](#form)
+    - [Grid / Column](#grid--column)
+    - [Table](#table)
+    - [Menu](#menu)
+  - [Views](#views)
+    - [Card](#card)
+    - [Item](#item)
+    - [Statistic](#statistic)
+  - [Modules](#modules)
+    - [Accordion](#accordion)
+    - [Checkbox](#checkbox)
+    - [Radio Input](#radio-input)
+    - [Dropdown](#dropdown)
+    - [Progress](#progress)
+    - [Tab](#tab)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -103,10 +85,10 @@ Refer to [Semantic UI docs](http://semantic-ui.com/) for a complete reference to
 
 
 ---
-### *Elements*
+### Elements
 ---
 
-### Input
+#### Input
 
 ```html
 <Input name="username" placeholder="Username here" label="Username" />
@@ -134,7 +116,7 @@ You can add buttons, icons and labels to the input.
 </Input>
 ```
 
-##### Common props:
+Common props:
 
 * *type*: text/textarea/number (range is a separate component)
 * *name*: The built in name property of the input
@@ -146,18 +128,18 @@ You can add buttons, icons and labels to the input.
     * value: New value
     * event: Synthetic event
 
-##### Textarea props:
+Textarea props:
 
 * *rows*: Number of rows in a textarea input
 
-##### Number props:
+Number props:
 
 * *min*
 * *max*
 * *step*
 
 
-### Flag
+#### Flag
 
 ```html
 <Flag flag="no" />
@@ -167,12 +149,12 @@ Renders to
 <i class="flag no"></i>
 ```
 
-##### Props:
+Props:
 * *flag*: Language code of flag
 
 
 
-### Icon
+#### Icon
 
 ```html
 <Icon icon="star" />
@@ -182,19 +164,14 @@ Renders to
 <i class="star icon"></i>
 ```
 
-##### Props:
+Props:
 * *icon*: Name of the font awesome icon
 * *size*: Size variation
 * *loading*: Is loading boolean
 * *disabled*: Disabled boolean
 
 
-### Rail
-
-TODO
-
-
-### Step
+#### Step
 
 
 ```html
@@ -218,61 +195,166 @@ Renders to
 
 
 ---
-### *Collections*
+### Collections
 ---
 
-### Form
+#### Form
 
-TODO
+This component will additionally make sure that silly submits cause a refresh, so all propagation is stopped. Get access to the submit event by adding a `onSubmit` prop with your handle function.
 
-### Grid
+```html
+<Form>
+  ...
+</Form>
+```
+Renders to
+```html
+<form class="ui form">
+  ...
+</form>
+```
 
-TODO
+#### Grid / Column
 
-### Table
+```html
+<Grid>
+  <Column>
+  
+  </Column>
+  <Column>
+  
+  </Column>
+</Grid>
+```
+Renders to
+```html
+<div class="ui grid">
+  <div class="column"></div>
+  <div class="column"></div>
+</div>
+```
 
-TODO
+#### Table
 
-### Menu
+```html
+<Table>
+  ...
+</Table>
+```
+Renders to
+```html
+<table class="ui table">
+  ...
+</table>
+```
 
-TODO
+#### Menu
+
+```html
+<Menu>
+  ...
+</Menu>
+```
+Renders to
+```html
+<div class="ui menu">
+  ...
+</div>
+```
 
 
 
 ---
-### *Views*
+### Views
 ---
 
 
-### Ads
+#### Card
 
-TODO
+```html
+<Cards>
+  <Card>
+    
+  </Card>
+  <Card>
+  
+  </Card>
+</Cards>
+```
+Renders to
+```html
+<div class="ui cards">
+  <div class="card">
+    
+  </div>
+  <div class="card">
+  
+  </div>
+</div>
+```
 
-### Card
+#### Item
 
-TODO
+```html
+<Items>
+  <Item>
+    
+  </Item>
+  <Item>
+  
+  </Item>
+</Items>
+```
+Renders to
+```html
+<div class="ui items">
+  <div class="item">
+    
+  </div>
+  <div class="item">
+  
+  </div>
+</div>
+```
 
-### Item
+#### Statistic
 
-TODO
+This particular element has a bit of extra functionality.
 
-### Statistic
+```html
+<Statistic value={3} label="Label" />
+```
+Renders to
+```html
+<div class="ui statistic">
+  <div class="value">3</div>
+  <div class="label">Label</div>
+</div>
+```
 
-TODO
-
-
+```html
+<Statistic value={3} formatter={x => x * 2} label="Label" labelAbove="above" />
+```
+Renders to
+```html
+<div class="ui statistic">
+  <div class="label">Above</div>
+  <div class="value">6</div>
+  <div class="label">Label</div>
+</div>
+```
 
 
 ------
-### *Modules*
+### Modules
 ---
 
-Modules are initialized by default, which is the same as passing the prop `init={true}`. To avoid initialization, pass `false` instead. 
+Modules are initialized by default, which is the same as passing the prop `init={true}`. To avoid initialization, pass `false` instead.
 
 To configure a module, pass the configuration object to `init`.
 
 
-### Accordion
+#### Accordion
 
 ```html
 <Accordion className="styled fluid">
@@ -323,12 +405,26 @@ or if you have dynamic content
 </Accordion>
 ```
 
-### Checkbox
+#### Checkbox
 
-TODO
+```html
+<Checkbox
+  onChange={this.handleChange}
+  className="toggle"
+  checked={true}
+  name="kittens"
+  label="Kittens" />
+```
+Renders to
+```html
+<div class="ui toggle  checkbox checked" color="null">
+  <input type="checkbox" name="kittens" tabindex="0" class="hidden">
+  <label>Kittens</label>
+</div>
+```
 
 
-### Radio Input
+#### Radio Input
 
 We have implemented a separate component for this variant of Checkbox.
 It constsists of a RadioGroup, with several RadioInput elements.
@@ -374,15 +470,62 @@ Renders to
 
 
 
-### Dropdown
+#### Dropdown
 
-TODO
+```html
+<Dropdown
+  name="name"
+  label="Label"
+  onChange={(newValue, name, element) => console.log(newValue)}
+  default="Choose category"
+  defaultValue="no"
+  options={[
+    { value: "no", name: "Norwegian"},
+    { value: "en": name: "English" }
+  ]}
+  />
+```
+Renders to
+```html
+<div name="language" default="" class="ui link item pointing  dropdown " tabindex="0">
+  <input type="hidden" name="language" value="no">
+  <i class="dropdown icon"></i>
+  <div class="text">
+    Norwegian
+  </div>
+  <div class="menu" tabindex="-1">
+    <div class="item active selected" data-value="no">
+      Norwegian
+    </div>
+    <div class="item" data-value="en">
+      English
+    </div>
+  </div>
+</div>
 
-### Progress
+```
 
-TODO
 
-### Tab
+#### Progress
+
+```html
+<Progress
+  label="Hello"
+  total={100}
+  value={50} />
+```
+Renders to
+```html
+<div class="ui progress">
+  <div class="bar">
+    <div class="progress"></div>
+  </div>
+  <div class="label">Hello</div>
+</div>
+```
+
+
+#### Tab
 
 Tabs have been given some extra functionality. It is now divided into three components, Tab, TabContent and TabMenu. The TabMenu contains the Tabs, and handles the clicking and showing of TabContent.
 
@@ -402,11 +545,3 @@ Tabs have been given some extra functionality. It is now divided into three comp
   .... something else
 </TabContent>
 ```
-
-
-
-
-
-## Tests
-
-TODO

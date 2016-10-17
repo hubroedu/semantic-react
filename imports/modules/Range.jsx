@@ -56,6 +56,8 @@ const Range = class extends React.Component {
     };
     
     const { value } = this.state;
+    
+    const fillWidth = (~~(100 * (value - this.props.min) / (this.props.max - this.props.min)));
 
     return (
       <Grid className="three column range-grid">
@@ -69,7 +71,7 @@ const Range = class extends React.Component {
             ref="range" />
           <div className="range-gfx">
             <div className="range-fill"
-              style={{ width: (~~(100 * value / this.props.max)) + "%" }}></div>
+              style={{ width: fillWidth + "%" }}></div>
             <div className="range-bg"></div>
           </div>
         </Column>

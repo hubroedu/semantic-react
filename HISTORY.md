@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [0.1.5 (in progress)](#015-in-progress)
+- [0.1.4](#014)
+- [0.1.3](#013)
+- [0.1.2](#012)
+- [0.1.1](#011)
+- [0.1.0](#010)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ### 0.1.5 (in progress)
 
 * added Title component (useful in accordions)

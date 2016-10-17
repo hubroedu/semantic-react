@@ -20,7 +20,7 @@ const Form = class extends React.Component {
   }
   
   render () {
-    let {
+    const {
       children,
       className,
       onSubmit,
